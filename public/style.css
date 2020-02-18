@@ -19,7 +19,7 @@ button {
 }
 
 .container {
-  padding: 20px 100px;
+  padding: 1.25em 6.25em;
 }
 
 header {
@@ -59,16 +59,16 @@ h2 {
   padding-right: 7em;
 }
 
-#form-page form > * {
+#form-page form>* {
   margin: 7px 0;
 }
 
-#form-page form > *:not(button) {
+#form-page form>*:not(button) {
   display: flex;
   flex-direction: column;
 }
 
-#form-page form > *:not(button) > :nth-child(2) {
+#form-page form>*:not(button)> :nth-child(2) {
   font-size: 1.5em;
   padding: 0.4em;
   line-height: 25px;
@@ -76,7 +76,7 @@ h2 {
   box-sizing: border-box;
 }
 
-#form-page form > button {
+#form-page form>button {
   padding: 10px 5px;
   font-weight: bold;
   font-size: 1.4em;
@@ -85,7 +85,7 @@ h2 {
   border-radius: 5px;
 }
 
-#form-page form > button:hover {
+#form-page form>button:hover {
   background-color: #1582c4;
 }
 
@@ -119,7 +119,7 @@ h2 {
   display: inline-block;
 }
 
-#home-page-top > div > div.home-title > h1 {
+#home-page-top>div>div.home-title>h1 {
   max-width: 256px;
 }
 
@@ -129,7 +129,7 @@ h2 {
   display: flex;
 }
 
-.button-area > #delete-all-confirmation {
+.button-area>#delete-all-confirmation {
   font-size: 1.6em;
   border: none;
   color: #fefefe;
@@ -140,7 +140,7 @@ h2 {
   box-shadow: 5px 7px 10px black;
 }
 
-.button-area > .add-post {
+.button-area>.add-post {
   font-size: 1.6em;
   color: #fefefe;
   background-color: teal;
@@ -152,7 +152,7 @@ h2 {
   top: 1px;
 }
 
-.button-area > .add-post:hover {
+.button-area>.add-post:hover {
   color: #fefefe;
   background-color: rgb(2, 25, 25);
 }
@@ -172,14 +172,14 @@ h2 {
   grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
 }
 
-.cards > li {
+.cards>li {
   list-style: none;
 }
 
 .card {
   display: grid;
   grid-template-rows: 210px 80px;
-  grid-template-areas: "text" "stats";
+  grid-template-areas: "text""stats";
 
   border-radius: 18px;
   background: white;
@@ -192,6 +192,7 @@ h2 {
 .card-text {
   grid-area: text;
   margin: 25px;
+  font-size: 1.5em;
 }
 
 .card-text .date {
@@ -201,13 +202,14 @@ h2 {
 
 .card-text p {
   color: grey;
-  font-size: 15px;
+  font-size: 1.2em;
   font-weight: 300;
 }
 
 .card-text h2 {
   margin-top: 0px;
-  font-size: 28px;
+  margin-bottom: 0px;
+  font-size: 2em;
 }
 
 .card-stats {
@@ -245,27 +247,6 @@ h2 {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 
-/* for vote */
-.voteButtons button {
-  margin-right: 10px;
-  border-radius: 5px;
-  font-size: 16px;
-  padding: 5px 15px;
-}
-
-.voteButtons button {
-  display: inline-block;
-  width: 100px;
-}
-
-.clicked#like {
-  background-color: #3ea6ff;
-  color: white;
-}
-
-#like:hover {
-  background-color: #3ea6ff;
-}
 
 .voteButtons span {
   line-height: 30px;
@@ -276,7 +257,7 @@ h2 {
   font-size: 1em;
 }
 
-body > footer {
+body>footer {
   display: flex;
   text-align: center;
   background-color: #172a35;
@@ -284,6 +265,20 @@ body > footer {
   align-items: center;
 }
 
-body > footer > p {
+body>footer>p {
   color: whitesmoke;
+}
+
+#like {
+  font-size: 1em;
+  border-radius: 5px;
+  background-color: #3f7fb7;
+  color: whitesmoke;
+  padding: .5em 1em;
+
+
+}
+
+#like:hover {
+  background-color: #0a355b;
 }

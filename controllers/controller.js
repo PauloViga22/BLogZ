@@ -56,13 +56,13 @@ exports.liker = (req, res, next) => {
   let {
     id,
     like
-  } = req.body;
-
+  } = req.params;
+  console.log("params", req.params);
   like = parseInt(like) + 1
   console.log("like: me dudeu", parseInt(like))
   Post.like(id, like);
   res.sendStatus(200)
-  res.redirect('/posts/' + id);
+  res.redirect("/");
 }
 
 exports.getPostDetailPage = (req, res, next) => {

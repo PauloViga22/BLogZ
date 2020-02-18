@@ -6,6 +6,10 @@ main.container {
   align-items: center;
 }
 
+#header {
+  font-size: 1.5em
+}
+
 #header h1 {
   border-bottom: 3px solid black;
   margin: 10px 0;
@@ -25,6 +29,7 @@ main.container {
 
 #content {
   width: 100%;
+  font-size: 1.5em;
 }
 
 #content p {
@@ -37,20 +42,27 @@ main.container {
   white-space: pre-wrap;
 }
 
+body>main>div.st-container {
+  width: 70%;
+  padding: 1em;
+}
+
 #content-footer {
   margin-top: 10px;
   font-size: 16px;
-  width: 100%;
-  /* padding-left: 20px; */
-  /*commented by shin*/
+  width: 75%;
+  padding-left: 20px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #content-footer>div {
   display: flex;
-  justify-content: flex-end;
+
+  align-items: center;
+  justify-content: center;
 }
 
 #content-footer>div>a.edit {
@@ -84,7 +96,7 @@ main.container {
 }
 
 #comments {
-  width: 100%;
+  width: 70%;
   font-size: 2em;
   text-align: center;
 }
@@ -129,6 +141,9 @@ main.container {
 
 #comments>div {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
 }
 
 /* comment form */
