@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/detail.css">
+  <link href="https://fonts.googleapis.com/css?family=Lacquer&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
 
@@ -16,21 +17,23 @@
     <div>
       <h1>Know more abou this post 😁</h1>
     </div>
+    <div class="st-container">
     <div id="header">
-      <h1><%= post.title %></h1>
+      <h1>Post title💭: <%= post.title %></h1>
       <div id="sub-header">
-        <h3 id="author"><%= post.author %></h3>
-        <p><%= new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %>
+        <h3 id="author">Author😎: <%= post.author %></h3>
+        <p>Date published📅:  <%= new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %>
         </p>
       </div>
     </div>
+    <div><h3 style="text-align: center; font-size: 2.5em;"> Content📝: ⬇</h3></div>
     <div id="content">
       <p><%= post.content %></p>
     </div>
+    </div>
     <div id="content-footer">
       <div class="voteButtons">
-        <button onclick="voteup('<%= post._id %>', '<%= post.like %>')" id="like" style="    background-color: #3f7fb7;
-          color: whitesmoke;">Like!👍</button>
+        <button onclick="voteup('<%= post._id %>', '<%= post.like %>')" id="like">Like!👍</button>
       </div>
       <span>'<%= post._id %>'</span>
       <span>'<%= post.like %>'</span>
@@ -80,7 +83,7 @@
           if (response.redirected) {
             window.location.href = response.url;
           }
-        });
+        }).then(window.location.reload());
     });
 
 
@@ -88,7 +91,7 @@
     console.log(like)
 
     const voteup = (id, like) => {
-      const url = '/post/like/' + id;
+      const url = '/posts/like/' + id+ "/"+ like;
       let data = {
         id: id,
         like: like
@@ -100,6 +103,8 @@
         method: 'PUT',
         body: JSON.stringify(data)
       }).then(response => {
+        
+        window.location.reload()
         if (response.redirected) {
           window.location.href = response.url;
         }

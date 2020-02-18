@@ -9,6 +9,7 @@ router.post('/posts', controller.addPost);
 router.put('/posts/:id/update', controller.updatePost);
 
 router.put('/posts/like/:id', controller.liker);
+router.put('/posts/like/:id/:like', controller.liker);
 
 router.get('/posts/:id', controller.getPostDetailPage);
 router.delete('/posts', controller.deleteAllPosts);
