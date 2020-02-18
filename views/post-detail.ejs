@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/detail.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include("modules/header") %>
+  <main class="container">
+    <div>
+      <h1>Know more abou this post 😁</h1>
+    </div>
+    <div id="header">
+      <h1><%= post.title %></h1>
+      <div id="sub-header">
+        <h3 id="author"><%= post.author %></h3>
+        <p><%= new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %>
+        </p>
+      </div>
+    </div>
+    <div id="content">
+      <p><%= post.content %></p>
+    </div>
+    <div id="content-footer">
+      <div class="voteButtons">
+        <button onclick="voteup('<%= post._id %>', '<%= post.like %>')" id="like" style="    background-color: #3f7fb7;
+          color: whitesmoke;">Like!👍</button>
+      </div>
+      <span>'<%= post._id %>'</span>
+      <span>'<%= post.like %>'</span>
+      <div>
+        <a class="edit" href=<%=`/posts/${post._id}/form`%>>Edit</a>
+        <button name=<%=post._id%> id="delete-btn">Delete</button>
+      </div>
+    </div>
+    <div id="comments">
+      <h3>Comments</h3>
+      <div class="commentsG">
+        <% if (post.comments.length > 0) { %>
+        <% for(let i = 0; i < post.comments.length; i++) { %>
+        <div class="comment">
+          <div>
+            <div>
+              <span><%= post.comments[i].name %></span><% const date = post.comments[i].date %>
+              <span
+                class="comment-date"><%= new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) %></span>
+            </div>
+            <p><%= post.comments[i].commentContent %></p>
+          </div>
+        </div>
+        <% } %>
+        <% } else { %>
+        <p>This post has no comment yet.</p>
+        <% } %>
+      </div>
+    </div>
+    <div class="form1">
+      <form id="comment-form" action="/posts/<%=post._id%>/comments" method="POST">
+        <input class="commenter" name="name" placeholder="Name" required>
+        <textarea rows="3" cols="50" class='comment-content' name="content" placeholder="Comment" required></textarea>
+        <button type="submit" class="save-comment-btn">Save</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const deleteBtn = document.getElementById('delete-btn');
+    deleteBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      fetch('/posts/' + e.target.name, {
+          method: 'DELETE'
+        })
+        .then(response => {
+          if (response.redirected) {
+            window.location.href = response.url;
+          }
+        });
+    });
+
+
+    const like = document.getElementById('like');
+    console.log(like)
+
+    const voteup = (id, like) => {
+      const url = '/post/like/' + id;
+      let data = {
+        id: id,
+        like: like
+      }
+      console.log("url: ", url)
+      console.log("STRINGFY", JSON.stringify(data))
+      console.log("data", data);
+      fetch(url, {
+        method: 'PUT',
+        body: JSON.stringify(data)
+      }).then(response => {
+        if (response.redirected) {
+          window.location.href = response.url;
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

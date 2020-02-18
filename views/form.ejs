@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include("modules/header") %>
+  <div id="form-page" class="container">
+    <h2><%= post ? "Edit the Post" : "Add a Post" %></h2>
+    <form id="form">
+      <% if (post) { %>
+      <input type="hidden" name="id" value="<%= post._id %>">
+      <% } else { %>
+      <div>
+        <label for="author">Author📝: </label>
+        <input type="text" id="author" name="author" placeholder="author">
+      </div>
+      <% } %>
+      <div>
+        <label for="title">Title💭:</label>
+        <input type="text" name="title" value="<%= post ? post.title : "" %>" placeholder="title">
+      </div>
+      <div>
+        <label for="content">Content✍:</label>
+        <textarea name="content" placeholder="content" rows="10"><%= post ? post.content : "" %></textarea>
+      </div>
+      <button><%= post ? "Update" : "Post" %></button>
+    </form>
+  </div>
+  <script>
+    const form = document.getElementById('form');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const isEditing = !!e.target.elements.id;
+      const url = isEditing ? '/posts/' + e.target.elements.id + '/update' : '/posts'
+      fetch(url, {
+        method: isEditing ? 'PUT' : 'POST',
+        body: new FormData(this)
+      }).then(response => {
+        if (response.redirected) {
+          window.location.href = response.url;
+        }
+      });
+
+    });
+  </script>
+</body>
+
+</html>

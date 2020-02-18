@@ -1,0 +1,174 @@
+main.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#header h1 {
+  border-bottom: 3px solid black;
+  margin: 10px 0;
+  text-align: center;
+}
+
+#header h3 {
+  text-align: right;
+  margin: 0 10px 0;
+}
+
+#sub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#content {
+  width: 100%;
+}
+
+#content p {
+  margin: 0;
+  border: 2px solid grey;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 14.5px 20px;
+  min-height: 170px;
+  white-space: pre-wrap;
+}
+
+#content-footer {
+  margin-top: 10px;
+  font-size: 16px;
+  width: 100%;
+  /* padding-left: 20px; */
+  /*commented by shin*/
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+#content-footer>div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#content-footer>div>a.edit {
+  font-size: 1em;
+  color: #fefefe;
+  background-color: teal;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  margin: 0 15px 0 0;
+}
+
+#content-footer>div>a.edit:hover {
+  background-color: #013b3b;
+}
+
+#content-footer>div>#delete-btn {
+  font-size: 16px;
+  border: none;
+  color: #fefefe;
+  background-color: darkred;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+#content-footer>div>#delete-btn:hover {
+  background-color: #ff1818;
+}
+
+#sub-header p {
+  margin: 0;
+}
+
+#comments {
+  width: 100%;
+  font-size: 2em;
+  text-align: center;
+}
+
+.comment {
+  margin: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+}
+
+.comment>div {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 1em 1em;
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin: 0.3em;
+}
+
+.comment>div>* {
+  line-height: 25px;
+  font-size: 17px;
+}
+
+.comment>div span:first-child {
+  margin: 0 5px 0 0;
+  font-weight: bold;
+}
+
+.comment>div span.comment-date {
+  color: #555;
+  min-width: 50px;
+}
+
+.comment>div>p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+#comments>div {
+  display: flex;
+}
+
+/* comment form */
+#comment-form {
+  font-size: 17px;
+  margin: 20px auto 10px 0;
+  display: grid;
+  grid-gap: 5px;
+  grid-template:
+    "commenter save"
+    "content save"
+}
+
+#comment-form>.commenter {
+  grid-area: commenter;
+}
+
+#comment-form>* {
+  font-size: 1.5em;
+}
+
+#comment-form>.save-comment-btn {
+  grid-area: save;
+  border: none;
+  color: white;
+  background-color: steelblue;
+  border-radius: 5px;
+  padding: 2em;
+}
+
+#comment-form>.save-comment-btn:hover {
+  background-color:
+    #063e6d;
+}
+
+#comment-form>input,
+#comment-form>textarea {
+  padding: 0.2em;
+  border-radius: 4px;
+}
+
+
+/*----------*/

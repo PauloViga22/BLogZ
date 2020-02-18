@@ -1,0 +1,289 @@
+* {
+  font-family: roboto;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  padding: 20px 100px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #172a35;
+}
+
+header.container {
+  padding: 0.625em 6.25em;
+}
+
+header h1 {
+  margin: 0;
+  color: white;
+}
+
+#form-page.container {
+  padding: 20px 30px;
+}
+
+#home-page-top h1,
+h2 {
+  font-size: 4em;
+}
+
+#form-page h2 {
+  font-size: xx-large;
+  text-align: center;
+}
+
+#form-page form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+  padding-left: 7em;
+  padding-right: 7em;
+}
+
+#form-page form > * {
+  margin: 7px 0;
+}
+
+#form-page form > *:not(button) {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-page form > *:not(button) > :nth-child(2) {
+  font-size: 1.5em;
+  padding: 0.4em;
+  line-height: 25px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#form-page form > button {
+  padding: 10px 5px;
+  font-weight: bold;
+  font-size: 1.4em;
+  background-color: #0b3853;
+  color: azure;
+  border-radius: 5px;
+}
+
+#form-page form > button:hover {
+  background-color: #1582c4;
+}
+
+#form-page label {
+  font-size: 2em;
+  margin-bottom: 0.4em;
+}
+
+#home-page-top.wrapper {
+  display: flex;
+  height: 45vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(./andrew-neel-cckf4TsHAuw-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#home-page-top h1 {
+  background-color: rgb(255, 255, 255, 0.46);
+  padding: 10px;
+  margin: 0;
+}
+
+#home-page-top h2 {
+  background-color: rgb(255, 255, 255, 0.46);
+  padding: 10px;
+  margin: 0;
+  display: inline-block;
+}
+
+#home-page-top > div > div.home-title > h1 {
+  max-width: 256px;
+}
+
+.button-area {
+  margin: 30px 0 30px;
+  padding: 10px;
+  display: flex;
+}
+
+.button-area > #delete-all-confirmation {
+  font-size: 1.6em;
+  border: none;
+  color: #fefefe;
+  background-color: darkred;
+  padding: 5px 15px;
+  margin: 0 15px 0 0;
+  border-radius: 10%;
+  box-shadow: 5px 7px 10px black;
+}
+
+.button-area > .add-post {
+  font-size: 1.6em;
+  color: #fefefe;
+  background-color: teal;
+  padding: 5px 15px;
+  border-radius: 10%;
+  box-shadow: 5px 7px 10px black;
+  position: relative;
+  left: 42px;
+  top: 1px;
+}
+
+.button-area > .add-post:hover {
+  color: #fefefe;
+  background-color: rgb(2, 25, 25);
+}
+
+.blog-area {
+  background-color: #ded7cf;
+  min-height: 47.5vh;
+}
+
+.cards {
+  margin: 0;
+  padding: 3em 5em;
+  display: grid;
+  grid-gap: 40px;
+  justify-content: center;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+}
+
+.cards > li {
+  list-style: none;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: 210px 80px;
+  grid-template-areas: "text" "stats";
+
+  border-radius: 18px;
+  background: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  text-align: center;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.card-text {
+  grid-area: text;
+  margin: 25px;
+}
+
+.card-text .date {
+  color: rgb(255, 7, 110);
+  font-size: 13px;
+}
+
+.card-text p {
+  color: grey;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.card-text h2 {
+  margin-top: 0px;
+  font-size: 28px;
+}
+
+.card-stats {
+  grid-area: stats;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: #172a35;
+}
+
+.card-stats .stat {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+
+.card-stats .value {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.card-stats .type {
+  font-size: 11px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* for vote */
+.voteButtons button {
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 5px 15px;
+}
+
+.voteButtons button {
+  display: inline-block;
+  width: 100px;
+}
+
+.clicked#like {
+  background-color: #3ea6ff;
+  color: white;
+}
+
+#like:hover {
+  background-color: #3ea6ff;
+}
+
+.voteButtons span {
+  line-height: 30px;
+  font-weight: bold;
+}
+
+.form1 {
+  font-size: 1em;
+}
+
+body > footer {
+  display: flex;
+  text-align: center;
+  background-color: #172a35;
+  justify-content: center;
+  align-items: center;
+}
+
+body > footer > p {
+  color: whitesmoke;
+}
